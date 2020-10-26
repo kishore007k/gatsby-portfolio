@@ -11,6 +11,8 @@ export default () => {
     <Layout>
       <Hero />
       <Services />
+      <Jobs />
+      <Projects />
     </Layout>
   )
 }
