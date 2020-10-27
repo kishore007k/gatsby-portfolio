@@ -8,6 +8,7 @@ const Services = () => {
       <div className="section-center services-center">
         {services.map(service => {
           const { id, icon, title, text } = service
+
           return (
             <article key={id} className="service">
               {icon}

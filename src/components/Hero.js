@@ -3,7 +3,6 @@ import Image from "gatsby-image"
 import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
 import SocialLinks from "../constants/socialLinks"
-
 const query = graphql`
   {
     file(relativePath: { eq: "hero-img.png" }) {
@@ -15,7 +14,6 @@ const query = graphql`
     }
   }
 `
-
 const Hero = () => {
   const {
     file: {
@@ -27,11 +25,12 @@ const Hero = () => {
     <header className="hero">
       <div className="section-center hero-center">
         <article className="hero-info">
-          <div className="underline">
-            <h1>I'm Kishore</h1>
-            <h4>Web Developer</h4>
+          <div>
+            <div className="underline"></div>
+            <h1>i'm Kishore</h1>
+            <h4>freelance web and mobile UI/UX Designer</h4>
             <Link to="/contact" className="btn">
-              Contact Me
+              contact me
             </Link>
             <SocialLinks />
           </div>

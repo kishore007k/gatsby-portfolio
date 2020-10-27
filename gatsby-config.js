@@ -1,9 +1,15 @@
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/gatsby-config/
+ */
+
 module.exports = {
   siteMetadata: {
-    title: "Kishore Portfolio",
+    title: "WebDev Portfolio",
     description: "This is WebDev Portfolio Site",
-    author: "@kishore",
-    twitterUsername: "@kishore007k",
+    author: "@webdev",
+    twitterUsername: "@john_smilga",
     image: "/twitter-img.png",
     siteUrl: "https://testing-strapi-gatsby-build.netlify.app",
   },
@@ -24,11 +30,10 @@ module.exports = {
       options: {
         apiURL: `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
+        // contentTypes: [`jobs`, `projects`, `blogs`, ],
+        //singleTypes:[`about` ]
         contentTypes: [`jobs`, `projects`, `blogs`],
         singleTypes: [`about`],
-        //  ONLY ADD TO ARRAY IF YOU HAVE DATA IN STRAPI !!!!
-        // contentTypes: [`jobs`, `skills`],
-        // singleTypes: [],
       },
     },
     {

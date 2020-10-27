@@ -67,7 +67,7 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 ul {
   list-style-type: none;
@@ -134,7 +134,6 @@ p {
   padding: 0.375rem 0.75rem;
   letter-spacing: var(--spacing);
   display: inline-block;
-  width: max-content;
   font-weight: 700;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -408,6 +407,8 @@ Hero
 */
 /* underline added to globals */
 .hero {
+  margin-top: -5rem;
+  padding-top: 5rem;
   height: 100vh;
   background: var(--clr-primary-10);
   position: relative;
@@ -839,7 +840,7 @@ Footer
   text-transform: uppercase;
 }
 .footer h4 span {
-  color: var(--clr-white);
+  color: var(--clr-primary-5);
 }
 .footer-links {
   margin: 0 auto 1rem auto;

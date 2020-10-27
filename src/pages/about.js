@@ -3,40 +3,20 @@ import Layout from "../components/Layout"
 import { graphql } from "gatsby"
 import Title from "../components/Title"
 import Image from "gatsby-image"
+import SEO from "../components/SEO"
+const About = ({
+  data: {
+    about: { nodes },
+  },
+}) => {
+  const { info, stack, title, image } = nodes[0]
 
-export const query = graphql`
-  {
-    allStrapiAbout {
-      nodes {
-        id
-        info
-        title
-        image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        stack {
-          id
-          title
-        }
-      }
-    }
-  }
-`
-
-const About = ({ data }) => {
-  const {
-    allStrapiAbout: { nodes: about },
-  } = data
-  const { info, title, stack, image } = about[0]
   return (
     <Layout>
+      <SEO title="About Me" description="about webdev" />
       <section className="about-page">
         <div className="section-center about-center">
-          <Image fluid={image.childImageSharp.fluid} />
+          <Image fluid={image.childImageSharp.fluid} className="about-img" />
           <article className="about-text">
             <Title title={title} />
             <p>{info}</p>
@@ -51,5 +31,27 @@ const About = ({ data }) => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    about: allStrapiAbout {
+      nodes {
+        stack {
+          id
+          title
+        }
+        title
+        info
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default About

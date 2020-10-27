@@ -4,9 +4,11 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div>
-        <SocialLinks styleClass="footer-links" />
-        <h4>copyright &copy; {new Date().getFullYear()}</h4>
-        <span>Kishore</span> all rights reserved
+        <SocialLinks styleClass="footer-links"></SocialLinks>
+        <h4>
+          copyright&copy;{new Date().getFullYear()}
+          <span> Kishore </span> all rights reserved
+        </h4>
       </div>
     </footer>
   )

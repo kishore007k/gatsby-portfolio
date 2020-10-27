@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Title from "./Title"
 import { FaAngleDoubleRight } from "react-icons/fa"
 import { graphql, useStaticQuery } from "gatsby"
@@ -6,11 +6,11 @@ import { Link } from "gatsby"
 
 const query = graphql`
   {
-    allStrapiJobs(sort: { fields: strapiId, order: ASC }) {
+    allStrapiJobs(sort: { fields: strapiId, order: DESC }) {
       nodes {
+        strapiId
         company
         date
-        id
         position
         desc {
           id
@@ -26,35 +26,36 @@ const Jobs = () => {
   const {
     allStrapiJobs: { nodes: jobs },
   } = data
-  const [value, setValue] = useState(0)
+  const [value, setValue] = React.useState(0)
   const { company, position, date, desc } = jobs[value]
+
   return (
     <section className="section jobs">
-      <Title title="experience" />
+      <Title title="expierence" />
       <div className="jobs-center">
         {/* btn container */}
         <div className="btn-container">
-          {jobs.map((job, index) => {
+          {jobs.map((item, index) => {
             return (
               <button
-                key={job.strapiId}
+                key={item.strapiId}
                 onClick={() => setValue(index)}
                 className={`job-btn ${index === value && "active-btn"}`}
               >
-                {job.company}
+                {item.company}
               </button>
             )
           })}
         </div>
-        {/* Job Info */}
+        {/* job info */}
         <article className="job-info">
           <h3>{position}</h3>
           <h4>{company}</h4>
           <p className="job-date">{date}</p>
           {desc.map(item => {
             return (
-              <div key={item.id}>
-                <FaAngleDoubleRight className="job-icon" />
+              <div key={item.id} className="job-desc">
+                <FaAngleDoubleRight className="job-icon"></FaAngleDoubleRight>
                 <p>{item.name}</p>
               </div>
             )
